@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Acharya Academy – Accelerate Career</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --sky: #e8f4fd;
+      --blue: #2d87c8;
+      --blue-deep: #1a5f96;
+      --teal: #3ab5b0;
+      --mint: #eaf8f7;
+      --gold: #f5a623;
+      --gold-light: #fff8ec;
+      --red: #e84040;
+      --green: #27ae60;
+      --white: #ffffff;
+      --soft: #f7fafd;
+      --text: #1e2d40;
+      --muted: #6b8099;
+      --border: #d0e6f5;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--soft);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 2px solid var(--border);
+      padding: 0 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 70px;
+      box-shadow: 0 2px 20px rgba(45,135,200,0.08);
+    }
+
+    .nav-brand {
+      display: flex; align-items: center; gap: 12px;
+    }
+
+    .nav-logo-circle {
+      width: 46px; height: 46px;
+      background: linear-gradient(135deg, var(--blue), var(--teal));
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      color: white; font-size: 18px; font-weight: 800;
+      box-shadow: 0 3px 12px rgba(45,135,200,0.3);
+    }
+
+    .nav-title { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--blue-deep); font-weight: 700; }
+    .nav-sub { font-size: 0.68rem; color: var(--muted); letter-spacing: 0.5px; }
+
+    .nav-links {
+      display: flex; gap: 30px; list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none; font-size: 0.88rem; font-weight: 600;
+      color: var(--text); transition: color 0.2s;
+      letter-spacing: 0.3px;
+    }
+    .nav-links a:hover { color: var(--blue); }
+
+    .nav-cta {
+      background: linear-gradient(135deg, var(--blue), var(--teal));
+      color: white; border: none; padding: 10px 22px;
+      border-radius: 25px; font-size: 0.85rem; font-weight: 700;
+      cursor: pointer; text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 14px rgba(45,135,200,0.3);
+    }
+    .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(45,135,200,0.4); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(160deg, #e8f4fd 0%, #eaf8f7 40%, #fff8ec 100%);
+      display: flex; align-items: center;
+      padding: 100px 5% 60px;
+      position: relative; overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute; top: -100px; right: -100px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(45,135,200,0.1) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute; bottom: -80px; left: -80px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(58,181,176,0.12) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero-content { flex: 1; max-width: 600px; z-index: 1; }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--gold-light); border: 1.5px solid var(--gold);
+      color: var(--gold); border-radius: 20px;
+      padding: 5px 16px; font-size: 0.8rem; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase;
+      margin-bottom: 20px;
+      animation: fadeUp 0.8s ease both;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      line-height: 1.15; color: var(--text);
+      margin-bottom: 8px;
+      animation: fadeUp 0.9s ease both 0.1s;
+    }
+
+    .hero h1 span { color: var(--blue); }
+
+    .hero-tagline {
+      font-size: 1.15rem; color: var(--teal); font-weight: 700;
+      letter-spacing: 0.5px; margin-bottom: 18px;
+      animation: fadeUp 0.9s ease both 0.2s;
+      font-style: italic;
+    }
+
+    .hero p {
+      font-size: 1rem; color: var(--muted); line-height: 1.7;
+      margin-bottom: 32px; max-width: 500px;
+      animation: fadeUp 0.9s ease both 0.3s;
+    }
+
+    .hero-btns {
+      display: flex; gap: 14px; flex-wrap: wrap;
+      animation: fadeUp 0.9s ease both 0.4s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--blue), var(--blue-deep));
+      color: white; padding: 13px 30px; border-radius: 30px;
+      font-weight: 700; font-size: 0.95rem; text-decoration: none;
+      box-shadow: 0 6px 20px rgba(45,135,200,0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(45,135,200,0.45); }
+
+    .btn-outline {
+      border: 2px solid var(--blue); color: var(--blue);
+      padding: 11px 28px; border-radius: 30px;
+      font-weight: 700; font-size: 0.95rem; text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-outline:hover { background: var(--blue); color: white; }
+
+    .hero-stats {
+      display: flex; gap: 30px; margin-top: 42px; flex-wrap: wrap;
+      animation: fadeUp 0.9s ease both 0.5s;
+    }
+
+    .stat-item { text-align: center; }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem; color: var(--blue-deep); font-weight: 800;
+    }
+    .stat-num span { color: var(--gold); }
+    .stat-label { font-size: 0.75rem; color: var(--muted); font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; }
+
+    .hero-visual {
+      flex: 1; display: flex; justify-content: center; align-items: center;
+      z-index: 1;
+      animation: fadeIn 1.2s ease both 0.4s;
+    }
+
+    .hero-card-stack {
+      position: relative; width: 320px; height: 380px;
+    }
+
+    .h-card {
+      position: absolute; border-radius: 20px;
+      padding: 24px; background: white;
+      box-shadow: 0 10px 40px rgba(45,135,200,0.12);
+      border: 1.5px solid var(--border);
+    }
+
+    .h-card-main {
+      width: 280px; top: 50px; left: 20px;
+      background: linear-gradient(145deg, white, var(--sky));
+    }
+
+    .h-card-back {
+      width: 260px; top: 20px; left: 40px;
+      background: linear-gradient(145deg, var(--mint), white);
+      z-index: -1; transform: rotate(4deg);
+    }
+
+    .h-card-icon {
+      width: 50px; height: 50px;
+      background: linear-gradient(135deg, var(--blue), var(--teal));
+      border-radius: 14px; display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; margin-bottom: 14px;
+      box-shadow: 0 4px 14px rgba(45,135,200,0.25);
+    }
+
+    .h-card h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--text); margin-bottom: 6px; }
+    .h-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+
+    .h-card-mini {
+      position: absolute; bottom: 10px; right: -10px;
+      width: 160px; background: white;
+      border-radius: 16px; padding: 14px 16px;
+      box-shadow: 0 8px 30px rgba(45,135,200,0.15);
+      border: 1.5px solid var(--border);
+      display: flex; align-items: center; gap: 10px;
+    }
+
+    .mini-icon {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: var(--gold-light); border: 1.5px solid var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; flex-shrink: 0;
+    }
+
+    .mini-text .n { font-size: 1.2rem; font-weight: 800; color: var(--blue-deep); font-family: 'Playfair Display', serif; }
+    .mini-text .l { font-size: 0.68rem; color: var(--muted); font-weight: 600; }
+
+    /* ── SECTION COMMON ── */
+    section { padding: 80px 5%; }
+
+    .section-label {
+      display: inline-block;
+      background: var(--sky); color: var(--blue);
+      border: 1.5px solid var(--border);
+      padding: 4px 14px; border-radius: 20px;
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      color: var(--text); margin-bottom: 10px;
+    }
+
+    .section-title span { color: var(--blue); }
+
+    .section-sub {
+      font-size: 1rem; color: var(--muted); max-width: 560px; line-height: 1.7;
+    }
+
+    .section-header { margin-bottom: 50px; }
+
+    /* ── COURSES ── */
+    .courses-bg { background: var(--white); }
+
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .course-card {
+      background: white; border-radius: 18px;
+      border: 1.5px solid var(--border);
+      padding: 28px 24px;
+      transition: transform 0.25s, box-shadow 0.25s;
+      position: relative; overflow: hidden;
+    }
+
+    .course-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 4px;
+    }
+
+    .course-card.blue::before { background: linear-gradient(90deg, var(--blue), var(--teal)); }
+    .course-card.gold::before { background: linear-gradient(90deg, var(--gold), #f7c948); }
+    .course-card.green::before { background: linear-gradient(90deg, var(--green), #56c27e); }
+    .course-card.red::before { background: linear-gradient(90deg, var(--red), #f57c7c); }
+    .course-card.teal::before { background: linear-gradient(90deg, var(--teal), #7ed9d6); }
+    .course-card.purple::before { background: linear-gradient(90deg, #7c5cbf, #b48fe0); }
+
+    .course-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(45,135,200,0.12); }
+
+    .course-icon {
+      width: 54px; height: 54px; border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem; margin-bottom: 16px;
+    }
+
+    .course-card.blue .course-icon { background: #e8f4fd; }
+    .course-card.gold .course-icon { background: #fff8ec; }
+    .course-card.green .course-icon { background: #eafaf1; }
+    .course-card.red .course-icon { background: #fdecea; }
+    .course-card.teal .course-icon { background: #eaf8f7; }
+    .course-card.purple .course-icon { background: #f3effa; }
+
+    .course-card h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--text); margin-bottom: 8px; }
+    .course-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; margin-bottom: 16px; }
+
+    .course-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag {
+      font-size: 0.73rem; font-weight: 700; padding: 3px 10px;
+      border-radius: 12px; letter-spacing: 0.3px;
+    }
+    .tag-blue { background: #e8f4fd; color: var(--blue); }
+    .tag-gold { background: #fff8ec; color: #c47d00; }
+    .tag-green { background: #eafaf1; color: var(--green); }
+    .tag-red { background: #fdecea; color: var(--red); }
+    .tag-teal { background: #eaf8f7; color: var(--teal); }
+    .tag-purple { background: #f3effa; color: #7c5cbf; }
+
+    /* ── RESULTS ── */
+    .results-bg { background: linear-gradient(160deg, var(--sky) 0%, var(--mint) 100%); }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .result-card {
+      background: white; border-radius: 18px;
+      border: 1.5px solid var(--border);
+      padding: 24px 20px; text-align: center;
+      transition: transform 0.25s, box-shadow 0.25s;
+      position: relative; overflow: hidden;
+    }
+
+    .result-card:hover { transform: translateY(-4px); box-shadow: 0 14px 36px rgba(45,135,200,0.13); }
+
+    .result-exam {
+      font-size: 0.72rem; font-weight: 800; letter-spacing: 1.5px;
+      text-transform: uppercase; padding: 4px 12px;
+      border-radius: 12px; display: inline-block; margin-bottom: 14px;
+    }
+
+    .exam-eapcet { background: #e8f4fd; color: var(--blue); }
+    .exam-bitsat { background: #fff8ec; color: #c47d00; }
+    .exam-jee { background: #eafaf1; color: var(--green); }
+    .exam-srmee { background: #f3effa; color: #7c5cbf; }
+
+    .result-photo-placeholder {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--sky), var(--mint));
+      border: 3px solid var(--border);
+      margin: 0 auto 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem;
+    }
+
+    .result-score {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem; font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .score-blue { color: var(--blue); }
+    .score-gold { color: var(--gold); }
+    .score-green { color: var(--green); }
+    .score-purple { color: #7c5cbf; }
+
+    .result-label { font-size: 0.75rem; color: var(--muted); font-weight: 600; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .result-name { font-weight: 700; font-size: 0.92rem; color: var(--text); }
+    .result-hall { font-size: 0.72rem; color: var(--muted); margin-top: 4px; }
+
+    /* ── STREAMS ── */
+    .streams-bg { background: var(--white); }
+
+    .streams-wrap {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 30px;
+    }
+
+    .stream-card {
+      border-radius: 20px; padding: 36px 32px;
+      border: 1.5px solid var(--border);
+      position: relative; overflow: hidden;
+    }
+
+    .stream-card.mpc { background: linear-gradient(145deg, #e8f4fd, #eaf8f7); }
+    .stream-card.bipc { background: linear-gradient(145deg, #fff8ec, #fdecea20); }
+
+    .stream-icon { font-size: 2.5rem; margin-bottom: 14px; }
+    .stream-card h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--text); margin-bottom: 8px; }
+    .stream-card p { color: var(--muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px; }
+
+    .stream-subjects { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .subj-pill {
+      padding: 5px 14px; border-radius: 20px;
+      font-size: 0.8rem; font-weight: 700;
+    }
+
+    .pill-blue { background: white; border: 1.5px solid var(--blue); color: var(--blue); }
+    .pill-gold { background: white; border: 1.5px solid var(--gold); color: #c47d00; }
+
+    /* ── FOUNDATION ── */
+    .foundation-bg { background: linear-gradient(160deg, var(--mint), var(--gold-light)); }
+
+    .foundation-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 18px;
+    }
+
+    .class-card {
+      background: white; border-radius: 16px;
+      border: 1.5px solid var(--border);
+      padding: 22px 18px; text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .class-card:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(45,135,200,0.1); }
+
+    .class-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem; font-weight: 800; color: var(--blue);
+    }
+
+    .class-grade { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin-bottom: 12px; }
+
+    .board-tags { display: flex; flex-wrap: wrap; gap: 5px; justify-content: center; }
+    .board-tag { font-size: 0.68rem; font-weight: 700; padding: 2px 8px; border-radius: 8px; }
+    .bt-cbse { background: #e8f4fd; color: var(--blue); }
+    .bt-icse { background: #eafaf1; color: var(--green); }
+    .bt-state { background: #fff8ec; color: #c47d00; }
+
+    /* ── WHY US ── */
+    .why-bg { background: var(--white); }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    .why-card {
+      background: var(--soft); border-radius: 18px;
+      border: 1.5px solid var(--border);
+      padding: 28px 24px;
+      transition: transform 0.2s;
+    }
+    .why-card:hover { transform: translateY(-4px); }
+
+    .why-icon {
+      width: 52px; height: 52px; border-radius: 15px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; margin-bottom: 16px;
+    }
+
+    .wi-1 { background: #e8f4fd; }
+    .wi-2 { background: #eafaf1; }
+    .wi-3 { background: #fff8ec; }
+    .wi-4 { background: #eaf8f7; }
+    .wi-5 { background: #fdecea; }
+    .wi-6 { background: #f3effa; }
+
+    .why-card h4 { font-weight: 700; font-size: 1rem; color: var(--text); margin-bottom: 6px; }
+    .why-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── ADMISSIONS ── */
+    .admissions-bg { background: linear-gradient(160deg, var(--sky), var(--mint)); }
+
+    .admission-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .adm-card {
+      background: white; border-radius: 20px;
+      border: 1.5px solid var(--border);
+      padding: 30px 26px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative; overflow: hidden;
+    }
+
+    .adm-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(45,135,200,0.14); }
+
+    .adm-badge {
+      position: absolute; top: 18px; right: 18px;
+      background: var(--red); color: white;
+      font-size: 0.68rem; font-weight: 800; padding: 3px 10px;
+      border-radius: 10px; letter-spacing: 0.5px; text-transform: uppercase;
+    }
+
+    .adm-year {
+      font-size: 0.78rem; color: var(--muted); font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px;
+    }
+
+    .adm-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; color: var(--text); margin-bottom: 14px;
+    }
+
+    .adm-list { list-style: none; }
+    .adm-list li {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.87rem; color: var(--muted);
+      padding: 6px 0; border-bottom: 1px solid var(--border);
+    }
+    .adm-list li:last-child { border-bottom: none; }
+    .adm-list li::before { content: '✓'; color: var(--teal); font-weight: 800; flex-shrink: 0; }
+
+    /* ── CONTACT ── */
+    .contact-bg { background: var(--text); }
+
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+      align-items: start;
+    }
+
+    .contact-info h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem; color: white; margin-bottom: 16px;
+    }
+
+    .contact-info p { color: #a0b4c8; font-size: 0.95rem; line-height: 1.7; margin-bottom: 30px; }
+
+    .contact-items { display: flex; flex-direction: column; gap: 18px; }
+
+    .contact-item {
+      display: flex; align-items: center; gap: 14px;
+    }
+
+    .c-icon {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; flex-shrink: 0;
+    }
+
+    .c-label { font-size: 0.75rem; color: #6b8099; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+    .c-value { color: white; font-size: 0.92rem; font-weight: 600; margin-top: 2px; }
+
+    .contact-form {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px; padding: 34px 30px;
+    }
+
+    .contact-form h3 { color: white; font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 24px; }
+
+    .form-group { margin-bottom: 18px; }
+
+    .form-group label { display: block; font-size: 0.82rem; color: #a0b4c8; font-weight: 600; margin-bottom: 6px; }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%; padding: 12px 16px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px; color: white;
+      font-family: 'Nunito', sans-serif; font-size: 0.9rem;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--teal);
+    }
+
+    .form-group select option { background: #1e2d40; }
+    .form-group textarea { resize: vertical; min-height: 90px; }
+
+    .form-submit {
+      width: 100%; padding: 13px;
+      background: linear-gradient(135deg, var(--blue), var(--teal));
+      color: white; border: none; border-radius: 10px;
+      font-size: 0.95rem; font-weight: 700; cursor: pointer;
+      font-family: 'Nunito', sans-serif;
+      transition: opacity 0.2s, transform 0.2s;
+      box-shadow: 0 4px 16px rgba(45,135,200,0.3);
+    }
+    .form-submit:hover { opacity: 0.9; transform: translateY(-1px); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #111e2b; padding: 30px 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    footer p { color: #4a6278; font-size: 0.82rem; }
+    footer span { color: var(--blue); }
+
+    .footer-social { display: flex; gap: 12px; }
+    .social-btn {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem; text-decoration: none; color: #a0b4c8;
+      transition: background 0.2s, color 0.2s;
+    }
+    .social-btn:hover { background: var(--blue); color: white; }
+
+    /* ── BANNER STRIP ── */
+    .banner-strip {
+      background: linear-gradient(135deg, var(--blue-deep), var(--teal));
+      padding: 18px 5%;
+      display: flex; align-items: center; justify-content: center;
+      gap: 16px; flex-wrap: wrap; text-align: center;
+    }
+
+    .banner-strip p { color: white; font-size: 0.95rem; font-weight: 600; }
+    .banner-strip .b-cta {
+      background: white; color: var(--blue-deep);
+      padding: 8px 22px; border-radius: 20px;
+      font-weight: 800; font-size: 0.88rem; text-decoration: none;
+      transition: transform 0.2s;
+    }
+    .banner-strip .b-cta:hover { transform: scale(1.05); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero { flex-direction: column; text-align: center; }
+      .hero p { margin: 0 auto 32px; }
+      .hero-btns { justify-content: center; }
+      .hero-stats { justify-content: center; }
+      .hero-visual { margin-top: 40px; }
+      .streams-wrap { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+
+    @media (max-width: 600px) {
+      nav { padding: 0 4%; }
+      section { padding: 60px 4%; }
+      .hero { padding: 90px 4% 50px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-brand">
+    <div class="nav-logo-circle">A</div>
+    <div>
+      <div class="nav-title">Acharya Academy</div>
+      <div class="nav-sub">Accelerate Career · Since 1999</div>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#courses">Courses</a></li>
+    <li><a href="#results">Results</a></li>
+    <li><a href="#foundation">Foundation</a></li>
+    <li><a href="#admissions">Admissions</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Enroll Now</a>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="hero-badge">⭐ Since 1999 · Two Decades of Trust</div>
+    <h1>Shape Your Future with<br><span>Acharya Academy</span></h1>
+    <div class="hero-tagline">✦ Accelerate Career · Acharya Devo Bhava ✦</div>
+    <p>Guntur's premier coaching center for IIT-JEE, NEET, EAPCET, BITSAT & Foundation — trusted by thousands of students across Andhra Pradesh for over 25 years.</p>
+    <div class="hero-btns">
+      <a href="#admissions" class="btn-primary">🎓 Admissions Open 2026</a>
+      <a href="#results" class="btn-outline">🏆 View Results</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">25<span>+</span></div>
+        <div class="stat-label">Years of Excellence</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">99<span>.08%</span></div>
+        <div class="stat-label">JEE Mains Percentile</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">4<span>+</span></div>
+        <div class="stat-label">Exam Streams</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">6<span>th–12th</span></div>
+        <div class="stat-label">Classes Covered</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-card-stack">
+      <div class="h-card h-card-back"></div>
+      <div class="h-card h-card-main">
+        <div class="h-card-icon">🎯</div>
+        <h3>Center for IIT · NEET · Foundation</h3>
+        <p>Comprehensive coaching for EAPCET, IIT-JEE, BITSAT, NEET, SRMEE & Inter — for MPC & BIPC streams.</p>
+      </div>
+      <div class="h-card-mini">
+        <div class="mini-icon">🏅</div>
+        <div class="mini-text">
+          <div class="n">Rank 48</div>
+          <div class="l">SRMEE 2025</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── BANNER ── -->
+<div class="banner-strip">
+  <p>🔔 Short Term &amp; Crash Course 2026 — Admissions are NOW OPEN!</p>
+  <a href="#contact" class="b-cta">Register Today →</a>
+</div>
+
+<!-- ── COURSES ── -->
+<section class="courses-bg" id="courses">
+  <div class="section-header">
+    <div class="section-label">Our Programmes</div>
+    <h2 class="section-title">Courses We <span>Offer</span></h2>
+    <p class="section-sub">Expert-led coaching for every major competitive exam — from foundation to advanced level, for MPC and BIPC students.</p>
+  </div>
+  <div class="courses-grid">
+    <div class="course-card blue">
+      <div class="course-icon">📐</div>
+      <h3>EAPCET</h3>
+      <p>Engineering & Pharmacy Common Entrance Test coaching with focused Maths, Physics & Chemistry sessions aligned to AP syllabus.</p>
+      <div class="course-tags">
+        <span class="tag tag-blue">MPC</span>
+        <span class="tag tag-blue">Regular</span>
+        <span class="tag tag-blue">Crash Course</span>
+      </div>
+    </div>
+    <div class="course-card gold">
+      <div class="course-icon">⚗️</div>
+      <h3>IIT – JEE</h3>
+      <p>Intensive preparation for JEE Mains & Advanced with concept-based teaching, mock tests, and problem-solving practice.</p>
+      <div class="course-tags">
+        <span class="tag tag-gold">MPC</span>
+        <span class="tag tag-gold">Long Term</span>
+        <span class="tag tag-gold">Short Term</span>
+      </div>
+    </div>
+    <div class="course-card green">
+      <div class="course-icon">🧬</div>
+      <h3>NEET</h3>
+      <p>Medical entrance coaching covering Biology, Physics & Chemistry with structured revision, NCERT focus, and expert faculty.</p>
+      <div class="course-tags">
+        <span class="tag tag-green">BIPC</span>
+        <span class="tag tag-green">Regular</span>
+        <span class="tag tag-green">Crash Course</span>
+      </div>
+    </div>
+    <div class="course-card red">
+      <div class="course-icon">🚀</div>
+      <h3>BITSAT</h3>
+      <p>Birla Institute of Technology entrance preparation with high-speed problem-solving strategies and sectional mock tests.</p>
+      <div class="course-tags">
+        <span class="tag tag-red">MPC</span>
+        <span class="tag tag-red">Short Term</span>
+      </div>
+    </div>
+    <div class="course-card teal">
+      <div class="course-icon">🎓</div>
+      <h3>SRMEE & INTER</h3>
+      <p>Comprehensive preparation for SRM Engineering Entrance Exam and Intermediate board exams (MPC & BIPC).</p>
+      <div class="course-tags">
+        <span class="tag tag-teal">MPC</span>
+        <span class="tag tag-teal">BIPC</span>
+        <span class="tag tag-teal">Board</span>
+      </div>
+    </div>
+    <div class="course-card purple">
+      <div class="course-icon">🌱</div>
+      <h3>Foundation (6–10)</h3>
+      <p>Early IIT & NEET foundation for classes 6th to 10th under CBSE, ICSE and State curriculum — Maths, Physics, Chemistry.</p>
+      <div class="course-tags">
+        <span class="tag tag-purple">CBSE</span>
+        <span class="tag tag-purple">ICSE</span>
+        <span class="tag tag-purple">State</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── RESULTS ── -->
+<section class="results-bg" id="results">
+  <div class="section-header">
+    <div class="section-label">Our Achievements</div>
+    <h2 class="section-title">Star <span>Results 2025</span></h2>
+    <p class="section-sub">Our students have consistently secured top ranks in the most competitive entrance exams across India. Celebrating true academic excellence!</p>
+  </div>
+  <div class="results-grid">
+    <div class="result-card">
+      <span class="result-exam exam-eapcet">EAPCET 2025</span>
+      <div class="result-photo-placeholder">👨‍🎓</div>
+      <div class="result-score score-blue">Rank 1297</div>
+      <div class="result-label">All India Rank</div>
+      <div class="result-name">Mandava Vasanth</div>
+      <div class="result-hall">H.No. 2524E04066</div>
+    </div>
+    <div class="result-card">
+      <span class="result-exam exam-eapcet">EAPCET 2025</span>
+      <div class="result-photo-placeholder">👨‍🎓</div>
+      <div class="result-score score-blue">Rank 1819</div>
+      <div class="result-label">All India Rank</div>
+      <div class="result-name">Vajinepalli Balaram</div>
+      <div class="result-hall">H.No. 2524A12850</div>
+    </div>
+    <div class="result-card">
+      <span class="result-exam exam-bitsat">BITSAT 2025</span>
+      <div class="result-photo-placeholder">👨‍🎓</div>
+      <div class="result-score score-gold">273 Marks</div>
+      <div class="result-label">Score</div>
+      <div class="result-name">Rahul Sai Pathalam</div>
+      <div class="result-hall">H.No. 25076161</div>
+    </div>
+    <div class="result-card">
+      <span class="result-exam exam-jee">JEE Mains</span>
+      <div class="result-photo-placeholder">👨‍🎓</div>
+      <div class="result-score score-green">99.08%ile</div>
+      <div class="result-label">Percentile</div>
+      <div class="result-name">Bheeshma</div>
+      <div class="result-hall">H.No. 26310187002</div>
+    </div>
+    <div class="result-card">
+      <span class="result-exam exam-srmee">SRMEE 2025</span>
+      <div class="result-photo-placeholder">👨‍🎓</div>
+      <div class="result-score score-purple">Rank 48</div>
+      <div class="result-label">All India Rank</div>
+      <div class="result-name">Khadhar</div>
+      <div class="result-hall">–</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── STREAMS ── -->
+<section class="streams-bg" id="streams">
+  <div class="section-header">
+    <div class="section-label">Academic Streams</div>
+    <h2 class="section-title">MPC & BIPC <span>Programmes</span></h2>
+    <p class="section-sub">Specialized coaching designed for both engineering and medical aspirants, covering all major entrance exams.</p>
+  </div>
+  <div class="streams-wrap">
+    <div class="stream-card mpc">
+      <div class="stream-icon">📐</div>
+      <h3>MPC Stream</h3>
+      <p>Maths, Physics & Chemistry — for engineering aspirants targeting IIT-JEE, EAPCET, BITSAT, SRMEE and INTER examinations.</p>
+      <div class="stream-subjects">
+        <span class="subj-pill pill-blue">Mathematics</span>
+        <span class="subj-pill pill-blue">Physics</span>
+        <span class="subj-pill pill-blue">Chemistry</span>
+        <span class="subj-pill pill-blue">IIT-JEE</span>
+        <span class="subj-pill pill-blue">EAPCET</span>
+        <span class="subj-pill pill-blue">BITSAT</span>
+      </div>
+    </div>
+    <div class="stream-card bipc">
+      <div class="stream-icon">🧬</div>
+      <h3>BIPC Stream</h3>
+      <p>Biology, Physics & Chemistry — for medical aspirants targeting NEET, EAPCET (Pharmacy) and INTER examinations.</p>
+      <div class="stream-subjects">
+        <span class="subj-pill pill-gold">Biology</span>
+        <span class="subj-pill pill-gold">Physics</span>
+        <span class="subj-pill pill-gold">Chemistry</span>
+        <span class="subj-pill pill-gold">NEET</span>
+        <span class="subj-pill pill-gold">EAPCET</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOUNDATION ── -->
+<section class="foundation-bg" id="foundation">
+  <div class="section-header">
+    <div class="section-label">Foundation Programme</div>
+    <h2 class="section-title">Classes 6<sup>th</sup> to 10<sup>th</sup> — <span>IIT & NEET Foundation</span></h2>
+    <p class="section-sub">Summer Advance Coaching with early IIT & NEET Foundation training under CBSE, ICSE and State curriculum — Maths, Physics, Chemistry.</p>
+  </div>
+  <div class="foundation-grid">
+    <div class="class-card"><div class="class-num">6</div><div class="class-grade">th Class</div><div class="board-tags"><span class="board-tag bt-cbse">CBSE</span><span class="board-tag bt-icse">ICSE</span><span class="board-tag bt-state">State</span></div></div>
+    <div class="class-card"><div class="class-num">7</div><div class="class-grade">th Class</div><div class="board-tags"><span class="board-tag bt-cbse">CBSE</span><span class="board-tag bt-icse">ICSE</span><span class="board-tag bt-state">State</span></div></div>
+    <div class="class-card"><div class="class-num">8</div><div class="class-grade">th Class</div><div class="board-tags"><span class="board-tag bt-cbse">CBSE</span><span class="board-tag bt-icse">ICSE</span><span class="board-tag bt-state">State</span></div></div>
+    <div class="class-card"><div class="class-num">9</div><div class="class-grade">th Class</div><div class="board-tags"><span class="board-tag bt-cbse">CBSE</span><span class="board-tag bt-icse">ICSE</span><span class="board-tag bt-state">State</span></div></div>
+    <div class="class-card"><div class="class-num">10</div><div class="class-grade">th Class</div><div class="board-tags"><span class="board-tag bt-cbse">CBSE</span><span class="board-tag bt-icse">ICSE</span><span class="board-tag bt-state">State</span></div></div>
+  </div>
+</section>
+
+<!-- ── WHY US ── -->
+<section class="why-bg" id="why">
+  <div class="section-header">
+    <div class="section-label">Why Choose Us</div>
+    <h2 class="section-title">What Makes <span>Acharya Special</span></h2>
+    <p class="section-sub">Two decades of academic trust, a track record of results, and a student-first approach that sets us apart.</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon wi-1">🏆</div>
+      <h4>25+ Years of Excellence</h4>
+      <p>Established in 1999, Acharya Academy has shaped thousands of successful engineers and doctors across Andhra Pradesh.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon wi-2">👩‍🏫</div>
+      <h4>Expert Faculty</h4>
+      <p>Highly qualified teachers with years of experience in coaching students for competitive exams and board examinations.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon wi-3">📊</div>
+      <h4>Proven Results</h4>
+      <p>99.08 percentile in JEE Mains, Rank 48 in SRMEE, and multiple top ranks in EAPCET & BITSAT — every year.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon wi-4">📝</div>
+      <h4>Regular Mock Tests</h4>
+      <p>Scheduled test series, performance analysis, and doubt-clearing sessions to keep students exam-ready throughout the year.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon wi-5">🎯</div>
+      <h4>All Exams Covered</h4>
+      <p>One institution for EAPCET, IIT-JEE, NEET, BITSAT, SRMEE, INTER and Foundation — students don't need to go anywhere else.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon wi-6">🌱</div>
+      <h4>Early Foundation</h4>
+      <p>Foundation programmes starting from Class 6 give students an early edge in their IIT and NEET preparation journey.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── ADMISSIONS ── -->
+<section class="admissions-bg" id="admissions">
+  <div class="section-header">
+    <div class="section-label">Enroll Now</div>
+    <h2 class="section-title">Admissions <span>Open 2026</span></h2>
+    <p class="section-sub">Don't miss out — Short Term and Crash Course batches for 2026 are now accepting registrations. Secure your seat today!</p>
+  </div>
+  <div class="admission-cards">
+    <div class="adm-card">
+      <span class="adm-badge">Open</span>
+      <div class="adm-year">Short Term · 2026</div>
+      <h3>EAPCET & NEET Batch</h3>
+      <ul class="adm-list">
+        <li>EAPCET – Engineering & Pharmacy</li>
+        <li>NEET – Medical Entrance</li>
+        <li>JEE – BITSAT Preparation</li>
+        <li>MPC & BIPC Streams</li>
+        <li>Expert Faculty · Regular Tests</li>
+      </ul>
+    </div>
+    <div class="adm-card">
+      <span class="adm-badge">Open</span>
+      <div class="adm-year">Crash Course · 2026</div>
+      <h3>IIT-JEE, EAPCET & NEET</h3>
+      <ul class="adm-list">
+        <li>EAPCET · NEET · IIT-JEE</li>
+        <li>BITSAT · INTER · SRMEE</li>
+        <li>Intensive Revision Programme</li>
+        <li>Maths · Physics · Chemistry</li>
+        <li>Quick Results Focused Strategy</li>
+      </ul>
+    </div>
+    <div class="adm-card">
+      <span class="adm-badge">Open</span>
+      <div class="adm-year">Summer Advance · 2026</div>
+      <h3>Foundation: Classes 6–10</h3>
+      <ul class="adm-list">
+        <li>6th to 10th Class</li>
+        <li>CBSE · ICSE · State Board</li>
+        <li>IIT & NEET Foundation</li>
+        <li>Maths · Physics · Chemistry</li>
+        <li>Early Competitive Advantage</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section class="contact-bg" id="contact">
+  <div class="contact-grid">
+    <div class="contact-info">
+      <h2>Get in Touch with Acharya Academy</h2>
+      <p>Have questions about courses, admissions, or fees? Reach out to us directly — our team is happy to guide you and your child toward the right programme.</p>
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="c-icon">📍</div>
+          <div>
+            <div class="c-label">Address</div>
+            <div class="c-value">Vara Mahalakshmi Silks Road, Lakshmipuram, Guntur – 522 002</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="c-icon">📞</div>
+          <div>
+            <div class="c-label">Phone / WhatsApp</div>
+            <div class="c-value">9100390919 &nbsp;·&nbsp; 9441693269</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="c-icon">⏰</div>
+          <div>
+            <div class="c-label">Enquiry Hours</div>
+            <div class="c-value">Monday – Saturday · 9:00 AM – 7:00 PM</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="c-icon">🎓</div>
+          <div>
+            <div class="c-label">Courses</div>
+            <div class="c-value">EAPCET · IIT-JEE · NEET · BITSAT · SRMEE · Foundation</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <h3>📩 Quick Enquiry</h3>
+      <div class="form-group">
+        <label>Student Name</label>
+        <input type="text" placeholder="Enter student's full name"/>
+      </div>
+      <div class="form-group">
+        <label>Parent / Guardian Name</label>
+        <input type="text" placeholder="Enter parent name"/>
+      </div>
+      <div class="form-group">
+        <label>Mobile Number</label>
+        <input type="tel" placeholder="+91 XXXXX XXXXX"/>
+      </div>
+      <div class="form-group">
+        <label>Course Interested In</label>
+        <select>
+          <option value="">Select a Course</option>
+          <option>EAPCET – Regular / Crash Course</option>
+          <option>IIT-JEE (JEE Mains & Advanced)</option>
+          <option>NEET – Medical Entrance</option>
+          <option>BITSAT Preparation</option>
+          <option>SRMEE & INTER</option>
+          <option>Foundation – Classes 6 to 10</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Message (Optional)</label>
+        <textarea placeholder="Any specific questions or requirements..."></textarea>
+      </div>
+      <button class="form-submit">🚀 Submit Enquiry</button>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div>
+    <p>© 2025 <span>Acharya Academy</span> · Lakshmipuram, Guntur – 522 002</p>
+    <p style="margin-top:4px">Accelerate Career · Acharya Devo Bhava · Since 1999</p>
+  </div>
+  <div class="footer-social">
+    <a href="#" class="social-btn">📘</a>
+    <a href="#" class="social-btn">📸</a>
+    <a href="#" class="social-btn">🐦</a>
+    <a href="#" class="social-btn">💬</a>
+  </div>
+</footer>
+
+</body>
+</html>
